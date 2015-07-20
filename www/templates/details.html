@@ -1,0 +1,14 @@
+<ion-view cache-view="false">
+    <ion-nav-title>{{restaurant.name}}</ion-nav-title>
+    <ion-content>
+        <div class="restaurantInfo">
+            <p>{{restaurant.address}}</p>
+            <p>{{restaurant.city}}, {{restaurant.state}}</p>
+            <p>{{restaurant.phone}}</p>
+        </div>
+        <ui-gmap-google-map center="map.center" zoom="map.zoom">
+            <ui-gmap-marker idKey="restID" coords="userLocation" options="markerOptions"></ui-gmap-marker>
+        </ui-gmap-google-map>
+        <reviews></reviews>
+    </ion-content>
+</ion-view>

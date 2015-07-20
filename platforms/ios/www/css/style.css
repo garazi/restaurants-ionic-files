@@ -1,0 +1,114 @@
+.bar.bar-light {
+    border-bottom: 1px solid #FF4600;
+}
+
+.bar.bar-light .title {
+    font-size: 20px;
+}
+
+.bar.bar-light .title,
+.bar-light .button.button-clear {
+    color: #FF4600;
+}
+
+div.spinnerdiv {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 85px;
+    text-align: center;
+}
+
+div.spinnerdiv.reviewsdiv {
+    margin: auto;
+    position: absolute;
+    top: 140px;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 85px;
+    text-align: center;
+}
+
+.restaurantName {
+    color: #FF4600;
+    font-weight: 500;
+    font-size: 20px;
+    text-align: center;
+}
+
+.restaurantInfo > p {
+    color: #6F6F6F;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.restaurantReviews {
+	position: relative;
+}
+
+.restaurantReviews > h4 {
+    margin-left: 15px;
+    display: inline-block;
+}
+
+.first-review {
+    margin-left: 15px;
+}
+
+.hidden {
+    display: none;
+}
+
+h4.reviewTitle {
+    font-size: 14px;
+}
+
+.reviewBody {}
+
+.button.reviewButton {
+    float: right;
+    min-height: 24px;
+    line-height: 24px;
+    height: 24px;
+}
+
+.button.button-orange {
+    background-color: #FF6400;
+    color: #FFF;
+    border: none;
+    font-size: 24px;
+}
+
+.button-icon.icon:before {
+    font-size: 24px;
+    color: #FF4600;
+}
+
+.ion-chevron-right:before {
+    font-size: 19px;
+    color: #FF6400;
+}
+
+.item p {
+    white-space: normal;
+}
+
+.rating {
+    float: right;
+}
+
+.rating > li.ion-star {
+    color: #FF4600;
+    float: right;
+    line-height: 15px;
+}
+
+.angular-google-map-container {
+    height: 250px;
+}
