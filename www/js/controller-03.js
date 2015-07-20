@@ -85,31 +85,3 @@ angular.module('controllers', [])
     }, false);
 
 })
-
-.controller('FormCtrl', function($scope, $http, $ionicHistory, restaurantService) {
-    $scope.restaurant;
-    $scope.restID;
-
-    $scope.$on('$ionicView.beforeEnter', function() {
-        $scope.restaurant = restaurantService.getSelected();
-        $scope.restID = $scope.restaurant.restID;
-    });
-
-    $scope.createReview = function(review) {
-        var payload = {
-            restID: $scope.restID,
-            title: review.title,
-            reviewer: review.name,
-            rating: +review.rating,
-            body: review.body
-        }
-        $http.post('http://localhost:10010/reviews', payload)
-            .success(function(data, status, headers, config) {
-                review.title = null;
-                review.name = null;
-                review.rating = null;
-                review.body = null;
-                $ionicHistory.goBack();
-            })
-    }
-});
