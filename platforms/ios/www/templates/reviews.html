@@ -4,7 +4,7 @@
     <p class="first-review" ng-class="hideReviewsClass">Be the first to write a review</p>
     <div class="spinnerdiv reviewsdiv" ng-class="hideSpinnerClass"><ion-spinner></ion-spinner></div>
     <ion-list>
-        <ion-item collection-repeat="review in reviews">
+        <ion-item ng-repeat="review in reviews">
             <ul class="rating">
                 <li class="icon ion-star" ng-repeat="star in getRating($index) track by $index"></li>
             </ul>

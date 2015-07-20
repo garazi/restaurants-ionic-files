@@ -1,18 +1,16 @@
 <ion-view>
-  <ion-nav-title>RESTaurants</ion-nav-title>
-      <div class="spinnerdiv" ng-class="hideSpinnerClass">
-    <ion-spinner></ion-spinner>
-</div>
-  <ion-content>
-    <ion-refresher
-      pulling-text="Pull to refresh..."
-      on-refresh="getRestaurants()">
-    </ion-refresher>    
-    <ion-list>
-      <ion-item class="item-icon-right" href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">
-        {{restaurant.name}}
-        <i class="icon ion-chevron-right"></i>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-nav-title>RESTaurants</ion-nav-title>
+    <div class="spinnerdiv" ng-class="hideSpinnerClass">
+        <ion-spinner></ion-spinner>
+    </div>
+    <ion-content>
+        <ion-refresher pulling-text="Pull to refresh..." on-refresh="getRestaurants()">
+        </ion-refresher>
+        <ion-list>
+            <ion-item class="item-icon-right" href="#/details" ng-repeat="restaurant in restaurants" ng-click="setSelected(restaurant);">
+                {{restaurant.name}}
+                <i class="icon ion-chevron-right"></i>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

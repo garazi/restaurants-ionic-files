@@ -1,7 +1,7 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'RESTaurants' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 angular.module('RESTaurants', ['ionic', 'controllers', 'services', 'directives', 'uiGmapgoogle-maps', 'ngCordova'])
 
@@ -12,7 +12,6 @@ angular.module('RESTaurants', ['ionic', 'controllers', 'services', 'directives',
     // if(window.cordova && window.cordova.plugins.Keyboard) {
     //   cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     // }
-    console.log(window.cordova.plugins)
     if(window.StatusBar) {
       StatusBar.styleLightContent();;
     }
@@ -32,21 +31,6 @@ angular.module('RESTaurants', ['ionic', 'controllers', 'services', 'directives',
    templateUrl: 'templates/list.html',
    controller: 'ListCtrl'
  })
-
- .state('details', {
-   url: '/details',
-   templateUrl: 'templates/details.html',
-   controller: 'DetailsCtrl'
- })
-
- .state('form', {
-   url: '/form',
-   templateUrl: 'templates/reviewForm.html',
-   controller: 'FormCtrl'
- })
-
- // if none of the above states are matched, use this as the fallback
- $urlRouterProvider.otherwise('/');
 
  $ionicConfigProvider.backButton.previousTitleText(false).text(' ');
 
