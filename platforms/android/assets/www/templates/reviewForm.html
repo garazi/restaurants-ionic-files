@@ -1,0 +1,23 @@
+<ion-view cache-view="false" view-title="Write a Review">
+  <ion-content>
+  	<form ng-submit="createReview(review)">
+        <div class="list list-inset">
+          <label class="item item-input">
+            <input class="foo" type="text" placeholder="Give your review a title" ng-model="review.title">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Your name" ng-model="review.name">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Stars" ng-model="review.rating">
+          </label>
+          <label class="item item-input">
+            <textarea type="text" placeholder="Share your thoughts" rows="10" ng-model="review.body"></textarea>
+          </label>
+        </div>
+        <div class="padding">
+          <button type="submit" class="button button-block button-orange">Submit</button>
+        </div>
+      </form>
+  </ion-content>
+</ion-view>

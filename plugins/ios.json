@@ -40,6 +40,9 @@
     "installed_plugins": {
         "cordova-plugin-geolocation": {
             "PACKAGE_NAME": "com.apigee.restaurantsApp"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.apigee.restaurantsApp"
         }
     },
     "dependent_plugins": {}
