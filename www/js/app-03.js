@@ -38,7 +38,12 @@ angular.module('RESTaurants', ['ionic', 'controllers', 'services', 'directives',
    templateUrl: 'templates/details.html',
    controller: 'DetailsCtrl'
  })
-
+ 
+  .state('form', {
+   url: '/form',
+   templateUrl: 'templates/reviewForm.html',
+   controller: 'FormCtrl'
+ })
  // if none of the above states are matched, use this as the fallback
  $urlRouterProvider.otherwise('/');
 
