@@ -35,7 +35,14 @@ angular.module('controllers', [])
                     console.log('Data: ' + JSON.stringify(data));
                     $scope.restaurants = data.entities;
                     $scope.$broadcast('scroll.refreshComplete');
-                    $scope.hideSpinnerClass = "hidden";  
+                    $scope.hideSpinnerClass = "hidden";
+                    window.localStorage.setItem('list', JSON.parse($scope.restaurants));
+                })
+                .error(function(data, status, headers, config) {
+                    console.log('Loading saved data');
+                    $scope.$broadcast('scroll.refreshComplete');
+                    $scope.hideSpinnerClass = "hidden";
+                    $scope.restaurants = JSON.parse(window.localStorage.getItem('list'));
                 });
         };
     };
