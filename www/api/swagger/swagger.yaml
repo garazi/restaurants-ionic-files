@@ -1,0 +1,152 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: Hello World App
+# during dev, should point to your local machine
+host: localhost:10010
+# basePath prefixes all resource paths 
+basePath: /
+# 
+schemes:
+  # tip: remove http to make production-grade
+  - http
+  - https
+# format of bodies a client can send (Content-Type)
+consumes:
+  - application/json
+  - application/x-www-form-urlencoded
+# format of the responses to the client (Accepts)
+produces:
+  - application/json
+x-a127-config: {}
+x-a127-services: {}
+paths:
+  /hello:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: hello_world
+    x-volos-authorizations: 
+      oauth2: {}
+    x-a127-apply: {}
+    get:
+      description: Returns 'Hello' to the caller
+      # used as the method name of the controller
+      operationId: hello
+      parameters:
+        - name: name
+          in: query
+          description: The name of the person to whom to say hello
+          required: false
+          type: string
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /restaurants:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: restaurants
+    x-a127-apply: {}
+    get:
+      description: Returns a list of restaurants
+      # used as the method name of the controller
+      operationId: getRestaurants
+      responses:
+        200:
+          description: Success
+          schema:
+            type: object
+            required:
+              - entities
+            properties:
+              entities:
+                type: array
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /restaurants/{id}/reviews:
+    # binds a127 app logic to a route
+    x-swagger-router-controller: restaurants
+    x-a127-apply: {}
+    get:
+      description: Returns a list of reviews for a specific restaurant
+      # used as the method name of the controller
+      operationId: getReviews
+      parameters:
+        - name: id
+          in: path
+          description: The restID of the restaurant
+          required: true
+          type: number
+      responses:
+        200:
+          description: Success
+          schema:
+            type: object
+            required:
+              - entities
+            properties:
+              entities:
+                type: array
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+  /reviews:
+    x-swagger-router-controller: reviews
+    x-volos-authorizations: {}
+    x-volos-apply: {}
+    post:
+      x-volos-apply: {}
+      description: Posts a new review
+      operationId: postReview
+      parameters:
+        - name: body
+          in: body
+          description: Post review and rating
+          required: true
+          schema:
+            properties:
+              title:
+                type: string
+              restID:
+                type: integer
+              rating:
+                type: integer
+              reviewer:
+                type: string
+              body:
+                type: string
+            required: ["title", "body", "rating"]
+      responses:
+        "200":
+          description: Success
+          schema:
+            # a pointer to a definition
+            $ref: "#/definitions/HelloWorldResponse"
+        # responses may fall through to errors
+        default:
+          description: Error
+          schema:
+            $ref: "#/definitions/ErrorResponse"
+definitions:
+  HelloWorldResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
+  ErrorResponse:
+    required:
+      - message
+    properties:
+      message:
+        type: string
